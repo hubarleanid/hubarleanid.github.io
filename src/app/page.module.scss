@@ -1,67 +1,106 @@
-@use "../styles/variables" as v;
-
 .hero {
-  padding-top: v.$space-7;
-  padding-bottom: v.$space-6;
+  padding: 64px 0 44px;
+}
+
+.kicker {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 14px;
 }
 
 .title {
-  font-size: 2.25rem;
-  margin: 0 0 v.$space-2;
+  font-family: var(--font-display), sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+
+  @media (max-width: 640px) {
+    font-size: 36px;
+  }
 }
 
 .subtitle {
-  font-size: 1.1rem;
-  color: v.$color-accent;
-  font-weight: 500;
-  margin: 0 0 v.$space-4;
+  font-size: 16px;
+  color: var(--dim);
+  margin-bottom: 20px;
+}
+
+.accent {
+  color: var(--accent);
 }
 
 .summary {
-  color: v.$color-text-muted;
-  max-width: 640px;
-  margin: 0 0 v.$space-5;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--dim);
+  max-width: 620px;
+  margin: 0 0 28px;
 }
 
 .actions {
   display: flex;
-  gap: v.$space-3;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
-.button {
-  display: inline-block;
-  border: 1px solid v.$color-border;
-  border-radius: v.$radius;
-  padding: v.$space-2 v.$space-4;
-  color: v.$color-text;
+.tabPanel {
+  padding-top: 32px;
+}
 
-  &:hover {
-    border-color: v.$color-accent;
-    text-decoration: none;
+.skillGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
   }
 }
 
-.buttonPrimary {
-  @extend .button;
-  background: v.$color-accent-soft;
-  border-color: v.$color-accent;
-  color: v.$color-accent;
+.skillCard :global(.ant-card-body) {
+  padding: 18px 22px;
 }
 
-.skills {
+.skillHead {
   display: flex;
-  flex-wrap: wrap;
-  gap: v.$space-2;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
-.skillGroup {
-  margin-bottom: v.$space-4;
+.skillNum {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--accent);
 }
 
 .skillLabel {
-  font-family: v.$font-mono;
-  font-size: 0.8rem;
-  color: v.$color-text-muted;
-  margin: 0 0 v.$space-2;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.metaCard {
+  margin-top: 16px;
+}
+
+.metaCard :global(.ant-card-body) {
+  padding: 18px 22px;
+  display: flex;
+  gap: 44px;
+  flex-wrap: wrap;
+}
+
+.metaLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.metaBody {
+  font-size: 13px;
+  line-height: 1.7;
 }

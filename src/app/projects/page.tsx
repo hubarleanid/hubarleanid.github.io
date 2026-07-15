@@ -1,6 +1,6 @@
-import Section from "@/components/Section/Section";
-import Card from "@/components/Card/Card";
+import { Card } from "antd";
 import { projects } from "@/data/projects";
+import styles from "./page.module.scss";
 
 export const metadata = {
   title: "Projects — Leanid Hubar",
@@ -8,32 +8,35 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <Section eyebrow="Work" title="Projects & investigations">
-      <p>
-        A running list of things I&apos;ve built or dug into outside of client work. Edit{" "}
-        <code>src/data/projects.ts</code> to replace these placeholders with the real thing.
-      </p>
-      {projects.map((project) => (
-        <Card
-          key={project.title}
-          title={project.title}
-          description={project.description}
-          tags={project.tags}
-        >
-          <div>
-            {project.link && (
-              <a href={project.link} target="_blank" rel="noreferrer">
-                Live →
-              </a>
-            )}{" "}
-            {project.repo && (
-              <a href={project.repo} target="_blank" rel="noreferrer">
-                Source →
-              </a>
-            )}
-          </div>
-        </Card>
-      ))}
-    </Section>
+    <div className={styles.wrap}>
+      <p className={`mono ${styles.note}`}>{"// placeholder entries — swap in real projects"}</p>
+      <div className={styles.grid}>
+        {projects.map((project) => (
+          <Card key={project.title} bordered className={styles.card}>
+            <div className={styles.title}>{project.title}</div>
+            <div className={styles.description}>{project.description}</div>
+            <div>
+              {project.tags.map((tag) => (
+                <span key={tag} className="aTag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className={`mono ${styles.links}`}>
+              {project.link && (
+                <a href={project.link} target="_blank" rel="noreferrer">
+                  live →
+                </a>
+              )}
+              {project.repo && (
+                <a href={project.repo} target="_blank" rel="noreferrer">
+                  source →
+                </a>
+              )}
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
   );
 }

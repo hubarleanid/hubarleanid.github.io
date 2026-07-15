@@ -1,52 +1,73 @@
-import Section from "@/components/Section/Section";
+import { Button, Card } from "antd";
 import { profile, skillGroups } from "@/data/profile";
 import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <>
-      <section className={`container ${styles.hero}`}>
+      <section className={styles.hero}>
+        <p className={`mono ${styles.kicker}`}>$ whoami --verbose</p>
         <h1 className={styles.title}>{profile.name}</h1>
-        <p className={styles.subtitle}>{profile.title}</p>
+        <p className={`mono ${styles.subtitle}`}>
+          {profile.title.split("/")[0].trim()} <span className={styles.accent}>/</span>{" "}
+          {profile.title.split("/")[1]?.trim()}
+        </p>
         <p className={styles.summary}>{profile.summary}</p>
         <div className={styles.actions}>
-          <a href={`mailto:${profile.email}`} className={styles.buttonPrimary}>
+          <Button type="primary" href={`mailto:${profile.email}`}>
             Get in touch
-          </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className={styles.button}>
-            LinkedIn
-          </a>
-          <a href={profile.github} target="_blank" rel="noreferrer" className={styles.button}>
-            GitHub
-          </a>
+          </Button>
+          <Button href={profile.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn ↗
+          </Button>
+          <Button href={profile.github} target="_blank" rel="noreferrer">
+            GitHub ↗
+          </Button>
         </div>
       </section>
 
-      <Section eyebrow="Toolbox" title="Skills">
-        {skillGroups.map((group) => (
-          <div key={group.label} className={styles.skillGroup}>
-            <p className={styles.skillLabel}>{group.label}</p>
-            <div className={styles.skills}>
-              {group.items.map((item) => (
-                <span key={item} className="tag">
-                  {item}
-                </span>
+      <div className={styles.tabPanel}>
+        <div className={styles.skillGrid}>
+          {skillGroups.map((group, i) => (
+            <Card key={group.label} bordered className={styles.skillCard}>
+              <div className={styles.skillHead}>
+                <span className={styles.skillNum}>{String(i + 1).padStart(2, "0")}</span>
+                <span className={styles.skillLabel}>{group.label}</span>
+              </div>
+              <div>
+                {group.items.map((item) => (
+                  <span key={item} className="aTag">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        <Card bordered className={styles.metaCard}>
+          <div>
+            <p className={`mono ${styles.metaLabel}`}>EDUCATION</p>
+            <div className={styles.metaBody}>
+              {profile.education.map((edu) => (
+                <div key={edu.degree}>
+                  {edu.degree} — {edu.school}, {edu.year}
+                </div>
               ))}
             </div>
           </div>
-        ))}
-      </Section>
-
-      <Section eyebrow="Background" title="Education & languages">
-        {profile.education.map((edu) => (
-          <p key={edu.degree}>
-            <strong>{edu.degree}</strong> — {edu.school}, {edu.year}
-          </p>
-        ))}
-        <p>
-          {profile.languages.map((lang) => `${lang.name} (${lang.level})`).join(" · ")}
-        </p>
-      </Section>
+          <div>
+            <p className={`mono ${styles.metaLabel}`}>LANGUAGES</p>
+            <div className={styles.metaBody}>
+              {profile.languages.map((lang) => (
+                <div key={lang.name}>
+                  {lang.name} — {lang.level}
+                </div>
+              ))}
+            </div>
+          </div>
+        </Card>
+      </div>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import Section from "@/components/Section/Section";
+import { Card, Timeline } from "antd";
 import { experience } from "@/data/experience";
 import styles from "./page.module.scss";
 
@@ -8,30 +8,41 @@ export const metadata = {
 
 export default function ExperiencePage() {
   return (
-    <Section eyebrow="Career" title="Experience">
-      {experience.map((entry) => (
-        <div key={`${entry.company}-${entry.period}`} className={styles.entry}>
-          <h3 className={styles.role}>
-            {entry.role} · {entry.company}
-          </h3>
-          <p className={styles.meta}>
-            {entry.location} · {entry.period}
-          </p>
-          <p className={styles.context}>{entry.context}</p>
-          <ul className={styles.highlights}>
-            {entry.highlights.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-          <div>
-            {entry.stack.map((tech) => (
-              <span key={tech} className="tag">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
-    </Section>
+    <div className={styles.wrap}>
+      <Timeline
+        items={experience.map((entry) => ({
+          color: "var(--accent)",
+          children: (
+            <div key={`${entry.company}-${entry.period}`} className={styles.entry}>
+              <div className={styles.head}>
+                <div className={styles.role}>
+                  {entry.role} <span className={`mono ${styles.company}`}>@ {entry.company}</span>
+                </div>
+                <div className={`mono ${styles.period}`}>{entry.period}</div>
+              </div>
+              <div className={styles.location}>{entry.location}</div>
+              <Card bordered className={styles.context}>
+                {entry.context}
+              </Card>
+              <div className={styles.highlights}>
+                {entry.highlights.map((point) => (
+                  <div key={point} className={styles.highlightRow}>
+                    <span className={`mono ${styles.bullet}`}>▸</span>
+                    <span>{point}</span>
+                  </div>
+                ))}
+              </div>
+              <div className={styles.stack}>
+                {entry.stack.map((tech) => (
+                  <span key={tech} className="aTag">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ),
+        }))}
+      />
+    </div>
   );
 }
