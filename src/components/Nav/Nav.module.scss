@@ -1,0 +1,46 @@
+@use "../../styles/variables" as v;
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11, 14, 20, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid v.$color-border;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: v.$space-3;
+  padding-bottom: v.$space-3;
+}
+
+.brand {
+  font-weight: 600;
+  color: v.$color-text;
+
+  &:hover {
+    text-decoration: none;
+    color: v.$color-accent;
+  }
+}
+
+.links {
+  display: flex;
+  gap: v.$space-4;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  color: v.$color-text-muted;
+  font-size: 0.9rem;
+
+  &:hover {
+    color: v.$color-text;
+    text-decoration: none;
+  }
+}

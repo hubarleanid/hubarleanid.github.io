@@ -1,0 +1,67 @@
+@use "../styles/variables" as v;
+
+.hero {
+  padding-top: v.$space-7;
+  padding-bottom: v.$space-6;
+}
+
+.title {
+  font-size: 2.25rem;
+  margin: 0 0 v.$space-2;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: v.$color-accent;
+  font-weight: 500;
+  margin: 0 0 v.$space-4;
+}
+
+.summary {
+  color: v.$color-text-muted;
+  max-width: 640px;
+  margin: 0 0 v.$space-5;
+}
+
+.actions {
+  display: flex;
+  gap: v.$space-3;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius;
+  padding: v.$space-2 v.$space-4;
+  color: v.$color-text;
+
+  &:hover {
+    border-color: v.$color-accent;
+    text-decoration: none;
+  }
+}
+
+.buttonPrimary {
+  @extend .button;
+  background: v.$color-accent-soft;
+  border-color: v.$color-accent;
+  color: v.$color-accent;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$space-2;
+}
+
+.skillGroup {
+  margin-bottom: v.$space-4;
+}
+
+.skillLabel {
+  font-family: v.$font-mono;
+  font-size: 0.8rem;
+  color: v.$color-text-muted;
+  margin: 0 0 v.$space-2;
+}

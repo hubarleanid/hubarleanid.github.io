@@ -1,0 +1,32 @@
+@use "../../styles/variables" as v;
+
+.card {
+  background: v.$color-bg-elevated;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius;
+  padding: v.$space-4;
+  margin-bottom: v.$space-4;
+}
+
+.title {
+  margin: 0 0 v.$space-2;
+  font-size: 1.05rem;
+}
+
+.meta {
+  color: v.$color-text-muted;
+  font-size: 0.8rem;
+  font-family: v.$font-mono;
+  margin: 0 0 v.$space-2;
+}
+
+.description {
+  color: v.$color-text;
+  margin: 0 0 v.$space-3;
+}
+
+.links {
+  display: flex;
+  gap: v.$space-4;
+  font-size: 0.875rem;
+}
