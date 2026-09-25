@@ -9,7 +9,7 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <div className={styles.wrap}>
-      <p className={`mono ${styles.note}`}>{"// placeholder entries — swap in real projects"}</p>
+      <p className={`mono ${styles.note}`}>{"// side projects and experiments"}</p>
       <div className={styles.grid}>
         {projects.map((project) => (
           <Card key={project.title} bordered className={styles.card}>

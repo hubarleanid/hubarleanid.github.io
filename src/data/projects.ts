@@ -6,30 +6,14 @@ export type Project = {
   repo?: string;
 };
 
-// Placeholder entries — replace with your real projects and investigations.
 // Each card renders title, description, tags, and optional links.
 export const projects: Project[] = [
   {
-    title: "Project title goes here",
+    title: "Air Control (2017)",
     description:
-      "One or two sentences on what this project is, the problem it solves, and why it's interesting. Replace this placeholder with a real write-up.",
-    tags: [".NET", "Azure"],
-    link: "#",
-    repo: "#",
-  },
-  {
-    title: "Another project",
-    description:
-      "Short description of scope, your role, and the outcome. Link to a live demo and/or the source repo below.",
-    tags: ["React", "TypeScript"],
-    link: "#",
-    repo: "#",
-  },
-  {
-    title: "An investigation or deep dive",
-    description:
-      "Investigations don't need to be full projects — a focused write-up on a bug you chased, a performance issue you diagnosed, or a technology you evaluated works well here too.",
-    tags: ["Kafka", "Kubernetes"],
-    repo: "#",
+      "A browser game where you play an air traffic controller: click a plane and draw its flight path to one of four runways while avoiding collisions, as difficulty ramps up. A web take on the mobile game Air Control 2, written in modular ES2015 classes on HTML5 Canvas with Web Audio API sound and full-screen mode, bundled with Webpack and Babel. Best played on desktop with a mouse.",
+    tags: ["JavaScript (ES2015)", "HTML5 Canvas", "Web Audio API", "Webpack", "Babel", "jQuery", "Lodash"],
+    link: "https://hubarleanid.github.io/LeonidH.github.io/",
+    repo: "https://github.com/hubarleanid/LeonidH.github.io",
   },
 ];

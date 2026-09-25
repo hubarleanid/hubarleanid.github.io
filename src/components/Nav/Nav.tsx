@@ -9,8 +9,9 @@ import styles from "./Nav.module.scss";
 const tabs = [
   { href: "/", num: "01", label: "about" },
   { href: "/experience", num: "02", label: "experience" },
-  { href: "/projects", num: "03", label: "projects" },
-  { href: "/blog", num: "04", label: "blog" },
+  // Hidden for now; uncomment to bring the tabs back.
+  // { href: "/projects", num: "03", label: "projects" },
+  // { href: "/blog", num: "04", label: "blog" },
 ];
 
 export default function Nav() {
